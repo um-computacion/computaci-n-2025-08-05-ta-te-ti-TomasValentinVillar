@@ -35,16 +35,15 @@ class Tablero:
             if i == self.contenedor[1][contador] and i == self.contenedor[2][contador] and i != "":
                 raise Ganador("Ganaste!")
             contador = contador + 1
-                
-        #verifica diagonal
+        #verificar diagonal
+        x = self.contenedor[0][0]
+        y = self.contenedor[1][1]
+        z = self.contenedor[2][2]        
         for i in range(0,2):
-            x = self.contenedor[0][0]
-            y = self.contenedor[1][1]
-            z = self.contenedor[2][2]
             if x == y == z != "":
                 raise Ganador("Ganaste!")
             x = self.contenedor[0][2]
-            y = self.contenedor[2][0]
+            z = self.contenedor[2][0]
     def verificar_empate(self):
         contador = 0
         for i in self.contenedor:
