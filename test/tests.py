@@ -3,6 +3,7 @@ from src.tablero import Tablero,Ganador,Empate,PosOcupadaException
 from src.tateti import Tateti
 from unittest.mock import patch
 
+#ejecutar test con pyhton -m unittest
 class TestTaTeTi(unittest.TestCase):
     
     def test_ganar_columna1(self):

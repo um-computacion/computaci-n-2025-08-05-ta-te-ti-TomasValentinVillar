@@ -1,7 +1,8 @@
-from tateti import Tateti
-from tablero import Ganador, Empate
-from jugador import Jugador
+from src.tateti import Tateti
+from src.tablero import Ganador, Empate
+from src.jugador import Jugador
 
+#ejecutar cli con python -m src.cli
 def main():
     print("Bienvenidos al Tateti")
     juego = Tateti()
