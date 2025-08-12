@@ -16,7 +16,7 @@ class Tateti:
         # condicion para ganar
         # cambia turno... va a suceder solo si se pudo poner la ficha
         self.tablero.verificar_ganador()
-        #self.tablero.verificar_empate()
+        self.tablero.verificar_empate()
         if self.turno == "X":
             self.turno = "0"
         else:
