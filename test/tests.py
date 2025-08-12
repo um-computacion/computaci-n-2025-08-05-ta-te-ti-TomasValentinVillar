@@ -1,6 +1,6 @@
 import unittest
-from tablero import Tablero,Ganador,Empate,PosOcupadaException
-from tateti import Tateti
+from src.tablero import Tablero,Ganador,Empate,PosOcupadaException
+from src.tateti import Tateti
 from unittest.mock import patch
 
 class TestTaTeTi(unittest.TestCase):
