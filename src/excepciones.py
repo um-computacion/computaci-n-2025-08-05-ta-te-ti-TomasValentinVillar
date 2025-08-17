@@ -9,3 +9,6 @@ class Empate(Exception):
 
 class FueraDeRango(Exception):
     pass
+
+class NombreVacio(Exception):
+    pass

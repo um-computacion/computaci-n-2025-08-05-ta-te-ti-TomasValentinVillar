@@ -1,8 +1,8 @@
 from src.tateti import Tateti
-from src.tablero import Ganador, Empate
-from src.jugador import Jugador
+from excepciones import Ganador, Empate, PosOcupadaException, FueraDeRango
 
-#ejecutar cli con python -m src.cli
+
+
 def main():
     print("Bienvenidos al Tateti")
     juego = Tateti()

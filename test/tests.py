@@ -1,11 +1,24 @@
 import unittest
-from src.tablero import Tablero,Ganador,Empate,PosOcupadaException, FueraDeRango
+from src.excepciones import Ganador,Empate,PosOcupadaException, FueraDeRango, NombreVacio
 from src.tateti import Tateti
-from unittest.mock import patch
 
-#ejecutar test con pyhton -m unittest
+
 class TestTaTeTi(unittest.TestCase):
-    
+
+   
+    def test_ocupar_casilla(self):
+        juego = Tateti()
+
+        resultado = [
+            ["X", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+        ]
+
+        juego.ocupar_una_de_las_casillas(0,0)
+        
+        self.assertEqual(juego.tablero.contenedor, resultado)
+
     def test_ganar_columna1(self):
         juego = Tateti()
         juego.tablero.contenedor = [
@@ -109,6 +122,10 @@ class TestTaTeTi(unittest.TestCase):
         juego.crear_jugador('Tomas', 'X', 'Jugando')
         self.assertEqual('Tomas', juego.jugadores['X'].nombre)
         self.assertEqual('X', juego.jugadores['X'].ficha)
+    def test_crear_jugador_nombre_vacío(self):
+        juego = Tateti()
+        with self.assertRaises(NombreVacio):
+            juego.crear_jugador('', 'X', 'Jugando')
     def test_jugador_gana_X(self):
         juego = Tateti()
         juego.crear_jugador('Tomas', 'X', 'Jugando')
@@ -137,12 +154,13 @@ class TestTaTeTi(unittest.TestCase):
     def test_verificar_rango(self):
         juego = Tateti()
         with self.assertRaises(FueraDeRango):
-            juego.tablero.verificar_rango(-1,1)
+            juego.verificar_rango(-1,1)
         with self.assertRaises(FueraDeRango):
-            juego.tablero.verificar_rango(3,1)
+            juego.verificar_rango(3,1)
         with self.assertRaises(FueraDeRango):
-            juego.tablero.verificar_rango(1,-1)
+            juego.verificar_rango(1,-1)
         with self.assertRaises(FueraDeRango):
-            juego.tablero.verificar_rango(1,3)
+            juego.verificar_rango(1,3)
+    
 
 
