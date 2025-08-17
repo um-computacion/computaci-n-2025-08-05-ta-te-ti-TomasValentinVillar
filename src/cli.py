@@ -16,8 +16,8 @@ def main():
             print(i)
         print(f"Turno: {juego.jugadores[juego.turno].nombre}, Ficha: {juego.turno}")
         try:
-            fil = int(input("Ingrese fila: "))
-            col = int(input("Ingrese col: "))
+            fil = int(input("Ingrese fila (entre 0 y 2): "))
+            col = int(input("Ingrese col (entre 0 y 2): "))
             juego.ocupar_una_de_las_casillas(fil, col)
         
         except Ganador as e:

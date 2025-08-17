@@ -1,11 +1,4 @@
-class PosOcupadaException(Exception):
-    pass
-
-class Ganador(Exception):
-    pass
-
-class Empate(Exception):
-    pass
+from src.excepciones import Ganador,PosOcupadaException, Empate, FueraDeRango
 
 class Tablero:
     def __init__(self):
@@ -52,6 +45,12 @@ class Tablero:
                     contador = contador + 1
         if contador == 9:
             raise Empate("Empate!")
+    def verificar_rango(self,fil, col):
+        if fil < 0 or fil > 2:
+            raise FueraDeRango("Fila fuera de rango")
+        if col < 0 or col > 2:
+            raise FueraDeRango("Columna fuera de rango")
+        
 
             
 

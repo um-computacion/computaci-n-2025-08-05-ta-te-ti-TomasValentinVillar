@@ -1,5 +1,5 @@
 import unittest
-from src.tablero import Tablero,Ganador,Empate,PosOcupadaException
+from src.tablero import Tablero,Ganador,Empate,PosOcupadaException, FueraDeRango
 from src.tateti import Tateti
 from unittest.mock import patch
 
@@ -132,6 +132,17 @@ class TestTaTeTi(unittest.TestCase):
         juego.turno = '0'
         juego.definir_empate()
         self.assertEqual(juego.jugadores['X'].estado, 'Empate')
-        self.assertEqual(juego.jugadores['0'].estado, 'Empate')    
-    
+        self.assertEqual(juego.jugadores['0'].estado, 'Empate')
+
+    def test_verificar_rango(self):
+        juego = Tateti()
+        with self.assertRaises(FueraDeRango):
+            juego.tablero.verificar_rango(-1,1)
+        with self.assertRaises(FueraDeRango):
+            juego.tablero.verificar_rango(3,1)
+        with self.assertRaises(FueraDeRango):
+            juego.tablero.verificar_rango(1,-1)
+        with self.assertRaises(FueraDeRango):
+            juego.tablero.verificar_rango(1,3)
+
 
