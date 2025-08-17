@@ -1,15 +1,21 @@
 from src.tateti import Tateti
-from excepciones import Ganador, Empate, PosOcupadaException, FueraDeRango
+from src.excepciones import Ganador, Empate, PosOcupadaException, FueraDeRango,NombreVacio
 
 
 
 def main():
     print("Bienvenidos al Tateti")
     juego = Tateti()
-    nombre1 = input('Ingrese el nombre del jugador de a ficha X: ')
-    nombre2 = input('Ingrese el nombre del jugador de a ficha Y: ')
-    juego.crear_jugador(nombre1,'X','Jugando')
-    juego.crear_jugador(nombre2,'0','Juagando')
+    while True:
+        try:    
+            nombre1 = input('Ingrese el nombre del jugador de a ficha X: ')
+            nombre2 = input('Ingrese el nombre del jugador de a ficha Y: ')
+            juego.crear_jugador(nombre1,'X','Jugando')
+            juego.crear_jugador(nombre2,'0','Juagando')
+            break
+        except NombreVacio as e:
+            print(e)
+            
     while True:
         print("Tablero: ")
         for i in juego.tablero.contenedor:
